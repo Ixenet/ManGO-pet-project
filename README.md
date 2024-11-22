@@ -1,6 +1,6 @@
 # ManGO
 
-**ManGO** is a web-based manga library built using **React** for the frontend and **Express** with **PostgreSQL** for the backend. It includes a simple account system with user and admin roles, allowing administrators to add and remove manga.
+**ManGO** is a web-based manga library built using **React** for the frontend and **Express** with **PostgreSQL** for the backend. It includes a simple account system with user and admin roles, allowing administrators to add and remove manga.
 
 ## Features
 
@@ -21,115 +21,89 @@
 ### Frontend (React)
 
 - **Site**
-    - `node_modules`
-    - `public`
-        - `images`: Contains main project images such as manga covers.
-            - `mangaPanels`, `newsPanels`, `slides`
-            - `background.jpg`
-    - `src`
-        - `components`
-            - `mainPageElements`: Components for the homepage.
-                - `footer.js`, `header.js`, `mangaSet.js`, `newsSector.js`, `SlideShow.js`
-            - `mangaPageElements`: Components for manga pages.
-                - `additionalInfo.js`, `likeThis.js`, `mainInfo.js`
-            - `styles`: CSS files for specific pages and components.
-        - `addManga.js`: React page for adding manga.
-        - `App.js`: Implements routing and route protection.
-        - `authorizationPage.js`: User login and JWT generation.
-        - `cataloguePage.js`: Manga catalog with filters.
-        - `index.js`
-        - `mainPage.js`: Homepage, integrating main page components.
-        - `mangaPage.js`: Manga detail page.
-        - `newsPage.js`: News page.
+  - `node_modules`
+  - `public`
+    - `images`: Contains main project images such as manga covers.
+      - `mangaPanels`, `newsPanels`, `slides`
+      - `background.jpg`
+  - `src`
+    - `components`
+      - `mainPageElements`: Components for the homepage.
+        - `footer.js`, `header.js`, `mangaSet.js`, `newsSector.js`, `SlideShow.js`
+      - `mangaPageElements`: Components for manga pages.
+        - `additionalInfo.js`, `likeThis.js`, `mainInfo.js`
+      - `styles`: CSS files for specific pages and components.
+    - `addManga.js`: React page for adding manga.
+    - `App.js`: Implements routing and route protection.
+    - `authorizationPage.js`: User login and JWT generation.
+    - `cataloguePage.js`: Manga catalog with filters.
+    - `index.js`
+    - `mainPage.js`: Homepage, integrating main page components.
+    - `mangaPage.js`: Manga detail page.
+    - `newsPage.js`: News page.
 
 ### Backend (Express)
 
 - **Api**
-    - `node_modules`
-    - `.env`: Configuration file for database and JWT.
-    - `authenticationController.js`: Handles authentication requests.
-    - `index.js`: Combines manga and authentication routes.
-    - `mangaController.js`: Handles manga-related requests.
+  - `node_modules`
+  - `.env`: Configuration file for database and JWT.
+  - `authenticationController.js`: Handles authentication requests.
+  - `index.js`: Combines manga and authentication routes.
+  - `mangaController.js`: Handles manga-related requests.
 
 ## Installation and Setup
 
 ### Prerequisites
 
 Ensure you have the following installed:
-
-- **Node.js** (version 14+)
-- **PostgreSQL** (any recent version)
+- **Node.js** (version 14+)
+- **PostgreSQL** (any recent version)
 
 ### Installation
 
 1. **Clone the Repository**
-    
-    bash
-    
-    Копировать код
-    
-    `git clone https://github.com/Ixenet/ManGO.git cd ManGO`
-    
+
+   ```bash
+   git clone https://github.com/Ixenet/ManGO.git
+   cd ManGO
+   ```
+
 2. **Set Up the Backend**
-    
-    - Navigate to the `Api` directory:
-        
-        bash
-        
-        Копировать код
-        
-        `cd Api`
-        
-    - Install dependencies:
-        
-        bash
-        
-        Копировать код
-        
-        `npm install`
-        
-    - Create a `.env` file with your database and JWT configuration:
-        
-        env
-        
-        Копировать код
-        
-        `DB_USER="your_db_user" DB_PASSWORD="your_db_password" DB_NAME="mango_or_your_db_name" SECRET_KEY="your_jwt_secret"`
-        
-    - Start the server:
-        
-        bash
-        
-        Копировать код
-        
-        `npm start`
-        
+
+   - Navigate to the `Api` directory:
+     ```bash
+     cd Api
+     ```
+   - Install dependencies:
+     ```bash
+     npm install
+     ```
+   - Create a `.env` file with your database and JWT configuration:
+     ```env
+     DB_USER="your_db_user"
+     DB_PASSWORD="your_db_password"
+     DB_NAME="mango_or_your_db_name"
+     SECRET_KEY="your_jwt_secret"
+     ```
+   - Start the server:
+     ```bash
+     npm start
+     ```
+
 3. **Set Up the Frontend**
-    
-    - Navigate to the `Site/mango` directory:
-        
-        bash
-        
-        Копировать код
-        
-        `cd ../Site/mango`
-        
-    - Install dependencies:
-        
-        bash
-        
-        Копировать код
-        
-        `npm install`
-        
-    - Start the React app:
-        
-        bash
-        
-        Копировать код
-        
-        `npm start`
-        
+
+   - Navigate to the `Site/mango` directory:
+     ```bash
+     cd ../Site/mango
+     ```
+   - Install dependencies:
+     ```bash
+     npm install
+     ```
+   - Start the React app:
+     ```bash
+     npm start
+     ```
 
 ### Using the Application
 
@@ -139,17 +113,17 @@ Ensure you have the following installed:
 
 ## API Documentation
 
-|Method|Endpoint|Description|
-|---|---|---|
-|POST|`/registration`|User registration|
-|POST|`/login`|User login|
-|POST|`/add/manga`|Add new manga (admin only)|
-|POST|`/add/news`|Add news articles (admin only)|
-|GET|`/get/manga`|Retrieve all manga|
-|GET|`/get/news`|Retrieve all news|
-|GET|`/get/manga/:key`|Retrieve manga by ID or genre|
-|GET|`/get/news/:id`|Retrieve news by ID|
-|POST|`/delete/manga`|Delete manga (admin only)|
+| Method | Endpoint        | Description                          |
+|--------|-----------------|--------------------------------------|
+| POST   | `/registration` | User registration                   |
+| POST   | `/login`        | User login                          |
+| POST   | `/add/manga`    | Add new manga (admin only)          |
+| POST   | `/add/news`     | Add news articles (admin only)      |
+| GET    | `/get/manga`    | Retrieve all manga                  |
+| GET    | `/get/news`     | Retrieve all news                   |
+| GET    | `/get/manga/:key` | Retrieve manga by ID or genre       |
+| GET    | `/get/news/:id` | Retrieve news by ID                 |
+| POST   | `/delete/manga` | Delete manga (admin only)           |
 
 ## TODO
 
